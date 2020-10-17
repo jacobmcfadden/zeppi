@@ -3,7 +3,11 @@ import routes from './routes';
 import {useLocation} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import './App.scss';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init({
+  duration: 800,
+})
 function App() {
   
   let location = useLocation()

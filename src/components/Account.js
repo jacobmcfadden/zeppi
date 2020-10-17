@@ -5,7 +5,7 @@ import UserIcon from '../assets/icons/systemIcons/AccountIcon';
 function Account() {
 
     const {user} = useSelector((state) => state.authReducer)
-    const {userId, username, firstName, lastName, phone, email} = user
+    const {username, firstName, lastName, phone, email} = user
 
     return (
         <div className="Account dashboard-page">

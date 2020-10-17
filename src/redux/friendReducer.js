@@ -9,7 +9,6 @@ const GET_REQUESTS = 'GET_REQUESTS'
 const GET_USERS = 'GET_USERS'
 
 export function getFriends(payload){
-    console.log(payload)
     return {
         type: GET_FRIENDS,
         payload: payload
@@ -17,7 +16,6 @@ export function getFriends(payload){
 }
 
 export function getRequests(payload){
-    console.log(payload)
     return {
         type: GET_REQUESTS,
         payload: payload
@@ -25,7 +23,6 @@ export function getRequests(payload){
 }
 
 export function getUsers(payload){
-    console.log(payload)
     return {
         type: GET_USERS,
         payload: payload

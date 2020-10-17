@@ -5,7 +5,6 @@ function DropSnapshot(props) {
     const {lat, long, receiver_name} = props.drop
     return (
         <div className="DropSnapshot snapshot">
-            {console.log(receiver_name)}
             <div className="snapshot-content">
                 <div className="snapshot-icon">
                     <UserIcon className="m-h-auto" height="1.5rem" width="1.5rem"/>

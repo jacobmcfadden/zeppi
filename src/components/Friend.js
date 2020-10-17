@@ -5,7 +5,7 @@ import UserIcon from '../assets/icons/systemIcons/AccountIcon';
 function Friend(props) {
 
     const [friendName, setFriend] = useState('')
-    const {user_a, user_b, id} = props.friend
+    const {user_a, user_b} = props.friend
     const {user} = useSelector((state) => state.authReducer)
     const {username} = user
 

@@ -58,7 +58,7 @@ function MyLoot() {
                             <p className=" table-title phrase-blue">Pending Loot</p>
                         </div>
                         <div className="table-content">
-                            {loot.length > 0 ? loot.map(item =><div className="table-row"><Snapshot key={item.message_id} loot={item} view={view}/></div>) : <FallbackRow message="No pending loot at the moment."/>}
+                            {loot.length > 0 ? loot.map(item =><div key={item.message_id} className="table-row"><Snapshot key={item.message_id} loot={item} view={view}/></div>) : <FallbackRow message="No pending loot at the moment."/>}
                         </div>
                         <div className="table-footer">
                         </div>

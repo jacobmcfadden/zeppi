@@ -26,11 +26,8 @@ const NewMessageModal = (props) => {
         const sender = userId;
         const newTotal = totalDrops + 1;
         axios.post('/msg/newMsg', {message, sender, receiver, latitude, longitude}).then(() => {
-                console.log('line 29 NewMsg', totalDrops)
             axios.put('/msg/totalDrops', {userId, newTotal}).then(() => {
-                console.log('total drops line 31')
                 axios.get('/auth/user').then(res => {
-                    console.log('auth user line 33')
                     dispatch(getUser(res.data))
                     props.handleClose()
                 }).catch(err => console.log(err))

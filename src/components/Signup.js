@@ -6,7 +6,6 @@ import {loginUser} from '../redux/authReducer';
 import axios from 'axios';
 import ZeppiCloud from '../assets/ZeppiLogo/ZeppiCloud/ZeppiCloud';
 import CloudSpan from '../assets/Clouds/CloudSpan/CloudSpan';
-import PaperPlanes from '../assets/Planes/PaperPlanes/PaperPlanes';
 import ArrowLeftIcon from '../assets/icons/systemIcons/ArrowLeftIcon';
 // ADDED FOR REGEX----------------------
 import * as RegexService from '../services/RegexService';
@@ -287,9 +286,6 @@ function Signup() {
                 </div>
             </div>
             <div className="GraphicRow">
-                <div className="container__row size-h-3">
-                    <PaperPlanes className="paper-planes"/>
-                </div>
                 <CloudSpan className="CloudSpan"/>
             </div>
         </div>

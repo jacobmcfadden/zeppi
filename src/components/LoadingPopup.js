@@ -9,7 +9,7 @@ function LoadingPopup(props) {
         <div className="LoadingPopup">
             <div className="popup-container">
                 <div className="flex justify-center">
-                    <LoadingPlanes width="15rem" height="15rem" isLoading={props.isLoading}/>
+                    <LoadingPlanes width="15rem" height="15rem"/>
                 </div>
                 <div className="flex justify-center">
                     {messageFound ? 

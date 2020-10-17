@@ -53,7 +53,6 @@ function ViewMessage() {
 
     return (
         <div className="ViewMessage dashboard-page">
-            {console.log(match, latitude, lat, longitude, long)}
         
         { match === true ? (
             <div className="page-container">
