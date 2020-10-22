@@ -56,6 +56,15 @@
   font-weight: $font-light;
   font-family: $lato;
   color: $font-color;
+  &-blue {
+    @extend .headline;
+    color: $blue-primary;
+  }
+  &-white {
+    @extend .headline;
+    color: $white-primary;
+    font-weight: $font-thin;
+  }
 }
 
 .title {
@@ -82,6 +91,11 @@
     @extend .subtitle;
     color: $blue-primary;
   }
+  &-red {
+    @extend .subtitle;
+    color: $red-primary;
+    font-weight: $font-medium;
+  }
   &-white {
     @extend .subtitle;
     color: $white-primary;
@@ -96,6 +110,11 @@
   &-blue {
     @extend .phrase;
     color: $blue-primary;
+  }
+  &-blue-thin {
+    @extend .phrase;
+    color: $blue-primary;
+    font-weight: $font-light;
   }
   &-white {
     @extend .phrase;
@@ -300,6 +319,12 @@
     &-4 {
       margin-top: 4rem;
     }
+    &-5 {
+      margin-top: 5rem;
+    }
+    &-6 {
+      margin-top: 6rem;
+    }
   }
   &-b {
     &-25 {
@@ -336,6 +361,9 @@
     }
   }
   &-l {
+    &-0 {
+      margin-left: 0;
+    }
     &-25 {
       margin-left: .25rem;
     }
@@ -558,19 +586,26 @@
   &-gray {
     color: $font-color;
   }
+  &-white {
+    color: $white-primary;
+  }
 }
 
 // Hide Element
 .hidden {
   display: none;
+  @include transition(all .8s);
   &-trans {
     visibility: hidden;  
     @extend .disabled;
+    @include transition(all .8s);
+
   }
 }
 
 .show {
-  animation: spin-half ease-in-out 2s 1;
+  display: block;
+  @include transition(all 2s);
 }
 
 // Disable Element
@@ -821,8 +856,7 @@
 body {
   background: $blue-gradient-bg;
   width: 100vw;
-  height: 100vh;
-  overflow: scroll;
+  min-height: 100vh;
 }
 
 #root {
@@ -838,7 +872,7 @@ body {
 .Welcome {
   width: 100%;
   height: 100%;
-}
+background: $blue-gradient-bg;}
 
 // GENERAL DASHBAORD STYLING
 .dashboard-page {
@@ -1122,7 +1156,6 @@ body {
   z-index: -1;
 }
 
-
 // SIDENAV BAR STYLING
 .Navbar {
   position: fixed;
@@ -1237,11 +1270,12 @@ body {
 
 
 // WELCOME STYLING AND CLASS COMPONENTS
-.cloud-container {
+.nav-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 2001;
 }
 
 .nav-bar {
@@ -1256,7 +1290,7 @@ body {
 
 .welcome-toggle {
   @extend .container__row;
-  margin-left: auto;
+  margin-left: calc(100% - 5rem);
   color: $white-primary;
   background-color: $red-primary;
   height: 2rem;
@@ -1273,43 +1307,221 @@ body {
 }
 
 .welcome-logo {
-  @extend .container__col-md-4;
+  @extend .container__col-md-3;
   @extend .container__col-md-offset-1;
   @extend .container__col-18;
   @extend .container__col-offset-3;
   @extend .m-v-2;
-    color: $white-primary;
 }
 
 .header-buttons{
   @extend .container__col-lg-18;
-  @extend .container__col-lg-offset-5;
-  @extend .container__col-md-22;
+  @extend .container__col-md-18;
   @extend .container__col-md-offset-1;
   @extend .container__col-12;
+  @extend .container__col-sm-offset-6;
   @extend .container__col-offset-6;
   @extend .m-v-1;
 }
 
 .login-button {
-  @extend .btn-lg-white;  
-  @extend .container__col-md-3;
+  @extend .container__col-lg-4;
+  @extend .container__col-lg-offset-1;
+  @extend .container__col-md-5;
   @extend .container__col-md-offset-1;
   @extend .container__col-24;
   @extend .m-v-1;
+  max-width: 200px;
 }
 
 .signup-button {
-  @extend .btn-lg-white;  
-  @extend .container__col-md-3;
+  @extend .container__col-lg-4;
+  @extend .container__col-lg-offset-1;
+  @extend .container__col-md-5;
   @extend .container__col-md-offset-1;
   @extend .container__col-24;
   @extend .m-v-1;
+  max-width: 200px;
+
 }
 
 .preview-container {
   width: 100%;
+  overflow: hidden;
+}
+
+.GraphicBanner {
+  bottom: 0;
+  @extend .container__row;
+  overflow: hidden;
+}
+
+.CloudBreak {
+  @extend .flex-column;
+  @extend .justify-between;
+  overflow: hidden;
+}
+
+.upsideDown{
+  position: absolute;
+  top: -5;
+  animation: turn180 .01s ease-in-out 0s 1 normal forwards running;
+}
+
+@keyframes turn180 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes turn45 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(30deg);
+  }
+}
+
+.fullPageAnimation {
+  width: 100%;
+  height: 100%;
+  margin-top: 15rem;
+}
+
+.sectionTitle {
+  @extend .container__row;
+  @extend .justify-center;
+}
+
+.movingClouds {
+  position: fixed;
+  top: 0;
   height: 100vh;
+  width: 100vw;
+  z-index: 0;
+}
+
+.moveCloud {
+  position: absolute;
+  right: -100%;
+  &-1 {
+    @extend .moveCloud;
+    animation: move 20s ease-in .5s infinite;
+    width: 100px;
+    top: 84%;   
+    color: rgba(255, 255, 255, 0.89);   
+  }
+  &-2 {
+    @extend .moveCloud;
+    animation: move 25s ease-in 1s infinite;
+    width: 150px;
+    top: 65%;   
+    color: rgba(255, 255, 255, 0.75);   
+  }
+  &-3 {
+    @extend .moveCloud;
+    animation: move 32s ease-in .25s infinite;
+    width: 175px;
+    top: 71%;   
+    color: rgba(255, 255, 255, .80);   
+  }
+  &-4 {
+    @extend .moveCloud;
+    animation: move 18s linear 1s infinite;
+    width: 200px;
+    top: 90%;   
+    color: rgba(253, 253, 253, 1);   
+  }
+  &-5 {
+    @extend .moveCloud;
+    animation: move 16s linear 1s infinite;
+    width: 225px;
+    top: 48%;   
+    color: rgba(253, 253, 253, 1);   
+  }
+  &-6 {
+    @extend .moveCloud;
+    animation: move 17s ease-in 1.5s infinite;
+    width: 250px;
+    top: 17%;   
+    color: rgba(255, 255, 255, .65);   
+  }
+  &-7 {
+    @extend .moveCloud;
+    animation: move 24s ease-in 3s infinite;
+    width: 275px;
+    top: 30%;   
+    color: rgba(255, 255, 255, .8);   
+  }
+  &-8 {
+    @extend .moveCloud;
+    animation: move 10s linear 1s infinite;
+    width: 300px;
+    top: 3%;     
+    color: rgba(253, 253, 253, .75);   
+  }
+  &-9 {
+    @extend .moveCloud;
+    animation: move 8s linear 1s infinite;
+    width: 325px;
+    top: 68%;   
+    color: rgba(253, 253, 253, .9);   
+  }
+  &-10 {
+    @extend .moveCloud;
+    animation: move 24s linear 1s infinite;
+    width: 350px;
+    top: 22%;      
+    color: rgba(253, 253, 253, .6);   
+  }
+}
+
+.flyingPlane {
+position: absolute;
+top: 20%;
+left: calc(50% - 125px);
+width: 250px;
+}
+
+@keyframes move {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 100%;
+  }
+}
+
+.mainFeature {
+  background-color: $white-primary;
+  @extend .flex-column;
+  justify-content: center;
+
+  .mainFeatureImage {
+    @extend .flex;
+    @extend .justify-center;
+  }
+  
+  .mainFeatureHeadline {
+    @extend .flex;
+    @extend .justify-center;
+    @extend .title-blue;
+  }
+  
+  .mainFeatureParagraph {
+    @extend .flex;
+    @extend .justify-center;
+    @extend .phrase-blue-thin;
+    @extend .m-h-1;
+    @extend .m-v-2;
+    line-height: 1.5rem;
+  }
+  margin-bottom: 10rem;
+
 }
 
 .TopPageDiv {
@@ -1323,6 +1535,7 @@ body {
   @extend .container__col-md-offset-5;
   @extend .container__col-10;
   @extend .container__col-offset-3;
+  @extend .m-t-6;
 }
 
 .plane-trail {
@@ -1337,9 +1550,9 @@ body {
 }
 
 .CloudSpan {
-  @extend .container__col-24;
-  position: relative;
-  bottom: -40;
+  @extend .flex;
+  border: none;
+  overflow: hidden;
 }
 
 .RightBelowCloud {
@@ -1386,4 +1599,183 @@ body {
   flex-direction: column;
   justify-content: center;
   align-content: center;
+}
+
+.AirDrop {
+  position: fixed;
+  top: 5rem;
+  margin: auto;
+  animation: swing 10s linear infinite;
+
+}
+
+@keyframes swing { 
+  20% { transform: rotate(15deg); } 
+  40% { transform: rotate(-10deg); } 
+  60% { transform: rotate(5deg); } 
+  80% { transform: rotate(-5deg); } 
+  100% { transform: rotate(0deg); } 
+} 
+
+.item {
+  @extend .container__col-20;
+  @extend .container__col-sm-18;
+  @extend .container__col-md-17;
+  
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+  text-align: center;
+  border-radius: .5rem;
+  @extend .title-blue;
+
+}
+
+.messageBoxContainer {
+  @extend .container;
+}
+
+.messageBox {
+  background: $popup-color;
+  letter-spacing: 1px;
+  line-height: 30px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  top: -20px;
+  padding:1.25rem;
+  border-radius: 1rem;
+  @extend .flex-column;
+  @extend .justify-between;
+}
+
+.messageBox:after {
+  content: '';
+  position:absolute;
+  bottom:-10px; 
+  width:20px;
+  height:20px;
+  background:$popup-color;
+  left:50%;
+  margin-left:-10px;
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  transform:rotate(45deg);
+}
+
+.messageBoxClose {
+  @extend .flex;
+  @extend .justify-end
+}
+
+.messageBoxTitle {
+  font-family: $roboto;
+  font-weight: $font-regular;
+  color: $blue-primary;
+  font-size: 1.75rem;
+  @extend .m-b-50;
+}
+
+.messageBoxText {
+  @extend .phrase-blue;
+  // @extend .container__col-24;
+  // @extend .container__col-sm-16;
+  // @extend .container__col-md-12;
+  min-width: 225px;
+  width: 75%;
+  text-transform: none;
+  line-height: 1rem;
+  margin: 0 auto;
+  margin-bottom: 2.25rem;
+}
+
+.iconContainer {
+  width: 50%;
+  height: 50%;
+}
+
+.accountIcon {
+  margin: 0 auto;
+  @extend .flex-column;
+  @extend .justify-center;
+    margin-top: 1rem;
+    width: 33vw;
+    max-width: 255px;
+    height: 33vw;  
+    max-height: 255px;
+  background-color: $red-primary;
+  border-radius: 50%;
+  color: $white-primary;
+}
+
+.zeppiMapExample {
+  width: 250px;
+  border: solid 3px $red-primary;
+  border-radius: 50%;
+}
+
+.techUsed {
+  @extend .flex;
+  background-color: $white-primary;
+  width: 100%;
+}
+
+.introSection {
+  @extend .container__row;
+  background-color: $white-primary;
+  width: 100%;
+}
+
+.techIconContainer {
+  @extend .container__col-24;
+  @extend .container__col-sm-12;
+  @extend .container__col-md-8;
+  color: $blue-primary;
+  justify-content: center;
+}
+
+.techTitleContainer {
+  @extend .container__col-24;
+  @extend .container__col-sm-24;
+  @extend .container__col-md-24;
+  color: $blue-primary;
+  justify-content: center;
+}
+
+.techIcon {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+  margin-top: 25%;
+}
+
+.techTitle {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+  margin-top: 25%;
+  font-size: $sectionTitle;
+}
+
+.footerCaption {
+  width: 50%;
+  height: 50%;
+  margin-left: 25%;
+  margin-top: 1%;
+}
+
+.footerLogo {
+  width: 50%;
+  margin-left: 25%;
+  margin-top: 5%;
+
+}
+
+.footerCaptionContainer {
+  @extend .container__col-24;
+  @extend .container__col-sm-24;
+  @extend .container__col-md-24;
+  color: $blue-primary;
+  justify-content: center;
 }

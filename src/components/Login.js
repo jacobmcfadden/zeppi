@@ -6,7 +6,6 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import ZeppiCloud from '../assets/ZeppiLogo/ZeppiCloud/ZeppiCloud';
 import CloudSpan from '../assets/Clouds/CloudSpan/CloudSpan';
-import PaperPlanes from '../assets/Planes/PaperPlanes/PaperPlanes';
 
 function Login() {
 
@@ -67,9 +66,6 @@ function Login() {
                 </div>
             </div>
             <div className="GraphicRow">
-                <div className="container__row size-h-3">
-                    <PaperPlanes className="paper-planes"/>
-                </div>
                 <CloudSpan className="CloudSpan"/>
             </div>
         </div>

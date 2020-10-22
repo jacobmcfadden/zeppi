@@ -1,7 +1,6 @@
 module.exports = {
     newMessage:(req,res)=>{
         const db = req.app.get('db');
-        console.log(req.body)
         const {message, sender, receiver, latitude, longitude} = req.body;
         db.create_message([
             message,

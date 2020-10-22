@@ -9,7 +9,6 @@ const GET_DROPS = 'GET_DROPS'
 const GET_MESSAGE = 'GET_MESSAGE'
 
 export function getLoot(payload){
-    console.log(payload)
     return {
         type: GET_LOOT,
         payload: payload
@@ -17,7 +16,6 @@ export function getLoot(payload){
 }
 
 export function getDrops(payload){
-    console.log(payload)
     return {
         type: GET_DROPS,
         payload: payload
@@ -25,7 +23,6 @@ export function getDrops(payload){
 }
 
 export function getMessage(payload){
-    console.log(payload)
     return {
         type: GET_MESSAGE,
         payload: payload

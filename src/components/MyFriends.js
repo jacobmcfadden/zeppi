@@ -43,7 +43,7 @@ function MyFriends() {
         }).catch(err => console.log(err))
     }
 
-    const friendList = friends.map((friend, index) => <div className="table-row"><Friend key={index} friend={friend}/></div>)
+    const friendList = friends.map((friend, index) => <div key={index} className="table-row"><Friend key={index} friend={friend}/></div>)
 
 
     const requestList = requests.map(request => <Request key={request.id} request={request} accept={accept} deny={deny}/>)

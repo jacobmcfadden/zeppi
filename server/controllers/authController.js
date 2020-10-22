@@ -56,7 +56,6 @@ module.exports = {
         res.status(200).send('You are logged out!');
     },
     test: (req, res)=>{
-        console.log(req.body)
         res.status(200).send('TEST!');
     },
     getUser: (req, res) => {

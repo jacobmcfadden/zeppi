@@ -26,6 +26,5 @@ export const usePosition = () => {
 
         return () => geo.clearWatch(watcher)
     }, [])
-    console.log(position)
     return {...position, error}
 }

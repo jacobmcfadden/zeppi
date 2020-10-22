@@ -36,13 +36,12 @@ function AddFriend() {
         setSearch(true)
     }
 
-    const resultList = results.map((person, index) => <div className="table-row"> <User key={index} person={person} addFriend={addFriend}/></div>)
+    const resultList = results.map((person, index) => <div key={index} className="table-row"> <User key={index} person={person} addFriend={addFriend}/></div>)
 
-    const userList = users.map((person, index) => <div className="table-row"> <User key={index} person={person} addFriend={addFriend}/></div>)
+    const userList = users.map((person, index) => <div key={index} className="table-row"> <User key={index} person={person} addFriend={addFriend}/></div>)
 
     return (
         <div className="AddFriend dashboard-page">
-            {console.log(users)}
             <div className="page-container">
                 <div className="page-title">
                     <h1 className="title-white">Find Friends</h1>

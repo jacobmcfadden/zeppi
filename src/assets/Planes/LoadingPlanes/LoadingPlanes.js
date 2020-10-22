@@ -1,11 +1,9 @@
 import * as React from "react";
 import './LoadingPlanes.scss';
-import ReactCSSTransitionGroup from 'react-transition-group';
 
 function LoadingPlanes(props) {
-    const {isLoading} = props;
-    const [currentPlane, setCurrentPlane] = React.useState(1)
-    const [currentAnimation, setCurrentAnimation] = React.useState('turn')
+    const isLoading = true;
+    const [currentPlane, setCurrentPlane] = React.useState(1);
     
     React.useEffect(() => {
       let interval = null;

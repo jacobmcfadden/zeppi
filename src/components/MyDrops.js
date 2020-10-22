@@ -15,7 +15,6 @@ function MyDrops() {
 
     useEffect(() => {
         axios.get(`/msg/drops/${userId}`).then(res => {
-            console.log(res.data)
             dispatch(getDrops(res.data))
         }).catch(err => console.log(err))
     }, [dispatch, userId])
@@ -51,7 +50,7 @@ function MyDrops() {
                             <p className=" table-title phrase-blue">Active Drops</p>
                         </div>
                         <div className="table-content">
-                            {drops.length > 0 ? drops.map((item, index) => <div className="table-row"><DropSnapshot key={index} drop={item}/></div>) : <FallbackRow message="You currently have no active drops!"/>}
+                            {drops.length > 0 ? drops.map((item, index) => <div key={index} className="table-row"><DropSnapshot key={index} drop={item}/></div>) : <FallbackRow message="You currently have no active drops!"/>}
                         </div>
                         <div className="table-footer">
                         </div>
