@@ -1489,7 +1489,7 @@ width: 250px;
 
 @keyframes move {
   from {
-    right: -100%;
+    right: -375px;
   }
   to {
     right: 100%;
@@ -1550,7 +1550,8 @@ width: 250px;
 }
 
 .CloudSpan {
-  @extend .flex;
+  @extend .container__row;
+  @extend .align-end;
   border: none;
   overflow: hidden;
 }
