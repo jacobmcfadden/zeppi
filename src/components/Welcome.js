@@ -3,7 +3,7 @@ import '../styling/components/Welcome.scss';
 import {Link} from 'react-router-dom'
 import CloudSpan from '../assets/Clouds/CloudSpan/CloudSpan';
 import BottomCloudSpan from '../assets/Clouds/BottomCloudSpan/BottomCloudSpan';
-import LoadingPlanes from '../assets/Planes/LoadingPlanes/LoadingPlanes';
+import LoadingPlanes from '../assets/Planes/PaperPlanes/PaperPlanes';
 import CaretDownIcon from '../assets/icons/systemIcons/CaretDownIcon';
 import CaretUpIcon from '../assets/icons/systemIcons/CaretUpIcon';
 import ZeppiCloud from '../assets/ZeppiLogo/ZeppiCloud/ZeppiCloud';
